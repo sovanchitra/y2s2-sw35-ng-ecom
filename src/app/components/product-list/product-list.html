@@ -1,0 +1,42 @@
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-end justify-between mb-12">
+      <div>
+        <h2 class="text-3xl font-bold tracking-tight text-stone-900 mb-2">Bestselling Plants</h2>
+        <p class="text-stone-500">Our most popular green friends, loved by our community.</p>
+      </div>
+      <a
+        href="#"
+        class="hidden md:flex items-center gap-2 text-green-700 font-medium hover:text-green-800 group"
+      >
+        View all plants
+        <svg
+          class="w-4 h-4 transition-transform group-hover:translate-x-1"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M14 5l7 7m0 0l-7 7m7-7H3"
+          />
+        </svg>
+      </a>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      @for (product of products; track product.title) {
+        <app-product-card
+          [image]="product.image"
+          [title]="product.title"
+          [subtext]="product.subtext"
+          [price]="product.price"
+          [badge]="product.badge"
+          [badgeColor]="product.badgeColor ?? 'bg-white/90 text-stone-900'"
+        ></app-product-card>
+      }
+    </div>
+  </div>
+</section>
